@@ -1,8 +1,10 @@
 "use client";
 
 import NavBar from '@/components/navbar'
+import TicketCard from '@/components/ticketcard';
 import { motion } from 'framer-motion'
 import React from 'react'
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Page = () => {
   return (
@@ -13,8 +15,13 @@ const Page = () => {
       variants={{
         visible: { opacity: 1 },
         hidden: { opacity: 0 }
-      }} className='min-h-screen bg-neutral-900 p-4 px-10 text-white flex flex-col items-start justify-start'>
-      <p>Bérletek</p>
+      }} className='min-h-screen bg-neutral-900 p-4 px-10 text-white flex flex-col items-start justify-start gap-16'>
+      <p className="text-[40px] uppercase tracking-widest font-light mx-auto">Jegyek, bérletek</p>
+      <div className='w-full min-h-[200px] h-auto grid grid-flow-row grid-cols-3 place-items-center gap-y-16 mb-8'>
+        <TicketCard title='Délelőtti napijegy' price={990} />
+        <TicketCard title='Napijegy' price={1290} />
+        <TicketCard title='Start bérlet' price={4000} />
+      </div>
     </motion.div>
   )
 }
