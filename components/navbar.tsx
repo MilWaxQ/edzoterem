@@ -5,14 +5,15 @@ import { FaHome, FaRegBell, FaRegUserCircle } from 'react-icons/fa'
 import { IoTicket, IoLogIn } from 'react-icons/io5'
 import NavItem from './navitem';
 import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
 
 const NavBar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div className="w-full h-16 bg-neutral-800 rounded-lg shadow-xl flex flex-row items-center justify-evenly overflow-hidden px-8 mb-8">
+    <div className="w-[98.5%] h-16 bg-neutral-800 rounded-lg shadow-xl flex flex-row items-center justify-evenly overflow-hidden px-8 m-4 mb-0">
       <div className="w-full h-full flex flex-row items-center justify-start">
-        <p>Edzőterem</p>
+        <div className='rounded-full overflow-hidden p-5 relative bg-white'><Image src={"/images/logo.jpg"} objectFit='contain' alt='' fill style={{padding: "4px"}} ></Image></div>
       </div>
       <div className="w-full h-full flex flex-row items-center justify-center gap-4">
         <NavItem title='Főoldal' path='/' icon={<FaHome/>}/>

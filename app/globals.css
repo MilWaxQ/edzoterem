@@ -7,3 +7,15 @@ html, body, :root {
   padding: 0;
   background-color: rgb(23, 23, 23);
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+}

@@ -13,8 +13,7 @@ const Page = () => {
       variants={{
         visible: { opacity: 1 },
         hidden: { opacity: 0 }
-      }} className='min-h-screen bg-neutral-900 p-4 px-16 text-white flex flex-col items-start justify-start'>
-      <NavBar />
+      }} className='min-h-screen bg-neutral-900 p-4 px-10 text-white flex flex-col items-start justify-start'>
       <p>Bérletek</p>
     </motion.div>
   )
