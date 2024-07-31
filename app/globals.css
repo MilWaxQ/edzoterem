@@ -13,9 +13,9 @@ html, body, :root {
 }
 
 ::-webkit-scrollbar-track {
-  background: #171717;
+  background: #262626;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #0b0b0b;
 }
