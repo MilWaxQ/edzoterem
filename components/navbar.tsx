@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <div className="w-[98.5%] h-16 bg-neutral-800 rounded-lg shadow-xl flex flex-row items-center justify-evenly overflow-hidden px-8 m-4 mb-0">
       <div className="w-full h-full flex flex-row items-center justify-start">
-        <div className='rounded-full overflow-hidden p-5 relative bg-white'><Image src={"/images/logo.jpg"} objectFit='contain' alt='' fill style={{padding: "4px"}} ></Image></div>
+        <div className='rounded-full overflow-hidden p-5 relative bg-white'><Image src={"/images/logo.jpg"} alt='' fill style={{padding: "4px", objectFit: 'contain'}} ></Image></div>
       </div>
       <div className="w-full h-full flex flex-row items-center justify-center gap-4">
         <NavItem title='Főoldal' path='/' icon={<FaHome/>}/>
