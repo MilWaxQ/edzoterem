@@ -12,6 +12,12 @@ const Page = () => {
     {title: "Délelőtti napijegy", price: 990},
     {title: "Napijegy", price: 1290},
     {title: "Start bérlet", price: 3990},
+    {title: "Félhavi bérlet", price: 5899},
+    {title: "Diák és közalkalmazotti bérlet", price: 11999},
+    {title: "Havi bérlet", price: 9999},
+    {title: "10 alkalmas bérlet", price: 8999},
+    {title: "Havi páros bérlet", price: 18999},
+    {title: "Negyedéves bérlet", price: 22900}
   ]
   return (
     <motion.div initial="hidden"
