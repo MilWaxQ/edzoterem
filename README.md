@@ -1,6 +1,7 @@
 Edzőtermi vizsgaremek dokumentációja
 
 Vizsgaremekünk egy edzőterem webrendszeréről és felépítéséről fog szólni:
+
 1.: Edzőtermi bérletek vásárlására lesz alkalmas
 
 2.: Személyes adatok megtekintésére alkalmas (adminisztrációs hozzáféréssel)
