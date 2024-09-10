@@ -18,4 +18,4 @@ Az alkalmazásnak reszponzívnak kell lennie, hogy asztali és mobil böngésző
 
 Az adatokat egy adatbázisban kell tárolni, amelyet egy API-n keresztül lehet elérni. Az elkészített alkalmazás ezt az API-t hívja az adatok letöltéséhez és módosításához.
 
-Ezen kívül kell egy felület, ahol az edzőterem tulajdonosa kezelheti a jegyeket, bérleteket az API-n keresztül. Erre a felületre jelszó megadásával lehessen bejelentkezni. A tulajdonosnak létrehozni, módosítani és törölni is kell tudni az adatokat.
+Ezen kívül kell egy felület, ahol az edzőterem adminisztrátora kezelheti a jegyeket, bérleteket az API-n keresztül. Erre a felületre jelszó megadásával lehessen bejelentkezni. A tulajdonosnak létrehozni, módosítani és törölni is kell tudni az adatokat.
