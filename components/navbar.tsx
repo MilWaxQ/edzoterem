@@ -62,7 +62,7 @@ const NavBar = () => {
       </div>
       <div className="w-full h-full flex flex-row items-center justify-center gap-4">
         <NavItem title='Főoldal' path='/' icon={<FaHome/>}/>
-        <NavItem title='Bérletek' path='/berletek' icon={<IoTicket/>}/>
+        <NavItem title='Jegyek & Bérletek' path='/berletek' icon={<IoTicket/>}/>
       </div>
       <div className="w-full h-full flex flex-row items-center justify-end gap-4">
         <AnimatePresence mode='wait'>
