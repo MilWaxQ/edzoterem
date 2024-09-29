@@ -1,0 +1,4 @@
+felhasználó:
+ID, Név,email,jelszó,regisztráció dátuma
+Bérlet:
+tipus, lejarat, lancreakcio, felhasznaloID, berletID
