@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Berlet {
+  ID            Int         @id @default(autoincrement())
+  lejarat       DateTime    @db.Date
+  lancreakcio   Boolean     @default(false)
+  felhasznaloID Int
+  berletID      Int
+  felhasznalok  Felhasznalo @relation(fields: [felhasznaloID], references: [ID], onDelete: Cascade, map: "berletek_ibfk_1")
+
+  @@index([felhasznaloID], map: "felhasznaloID")
+  @@map("berletek")
+}
+
+model Felhasznalo {
+  ID                 Int      @id @default(autoincrement())
+  nev                String   @db.Text
+  email              String   @unique(map: "email") @db.VarChar(255)
+  jelszo             String   @db.Text
+  telefonszam        String   @unique(map: "telefonszam") @db.VarChar(255)
+  lakcim             String   @db.Text
+  szuletesiDatum     DateTime @db.Date
+  regisztracioDatuma DateTime @db.DateTime(0)
+  berletek           Berlet[]
+
+  @@map("felhasznalok")
+}

@@ -14,9 +14,9 @@ const NavItem: React.FC<NavItemProps> = ({title, icon, path}) => {
   const router = useRouter();
   
   return (
-    <span onClick={() => {router.push(path)}} className={`p-2 rounded-md flex flex-row items-center gap-2 cursor-pointer transition-all ${currentPath === path ? "bg-red-500" : "bg-transparent hover:bg-red-500 hover:bg-opacity-30"}`}>
+    <span onClick={() => {router.push(path)}} className={`w-fit p-2 rounded-md flex flex-row items-center gap-2 cursor-pointer transition-all ${currentPath === path ? "bg-red-500" : "bg-transparent hover:bg-red-500 hover:bg-opacity-30"}`}>
       {icon}
-      <span className='hidden lg:inline'>{title}</span>
+      <span className='hidden lg:inline min-w-fit text-nowrap'>{title}</span>
     </span>
   )
 }

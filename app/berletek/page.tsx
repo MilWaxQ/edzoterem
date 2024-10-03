@@ -33,15 +33,15 @@ const Page = () => {
         <span className='text-[30px] uppercase tracking-widest font-light'>Napijegyek</span>
         <span className='text-[30px] uppercase tracking-widest font-light'>Havi bérletek</span>
         <span className='text-[30px] uppercase tracking-widest font-light'>Egyéb bérletek</span>
-        {berletek.map((t) => <TicketCard title={t.title} price={t.price} />)}
+        {berletek.map((t) => <TicketCard key={t.title} title={t.title} price={t.price} />)}
       </div>
       <div className='w-full h-auto flex-col flex lg:hidden items-center gap-y-4'>
         <span className='text-[24px] md:text-[30px] uppercase tracking-widest font-light mb-4'>Napijegyek</span>
-        {berletek.filter((t) => t.type === "daily").map((t) => <TicketCard title={t.title} price={t.price} />)}
+        {berletek.filter((t) => t.type === "daily").map((t) => <TicketCard key={t.title} title={t.title} price={t.price} />)}
         <span className='text-[24px] md:text-[30px] uppercase tracking-widest font-light mb-4 mt-4'>Havi bérletek</span>
-        {berletek.filter((t) => t.type === "monthly").map((t) => <TicketCard title={t.title} price={t.price} />)}
+        {berletek.filter((t) => t.type === "monthly").map((t) => <TicketCard key={t.title} title={t.title} price={t.price} />)}
         <span className='text-[24px] md:text-[30px] uppercase tracking-widest font-light mb-4 mt-4'>Egyéb bérletek</span>
-        {berletek.filter((t) => t.type === "other").map((t) => <TicketCard title={t.title} price={t.price} />)}
+        {berletek.filter((t) => t.type === "other").map((t) => <TicketCard key={t.title} title={t.title} price={t.price} />)}
       </div>
     </motion.div>
   )

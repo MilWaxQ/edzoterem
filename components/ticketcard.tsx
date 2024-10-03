@@ -1,5 +1,10 @@
+"use client";
+
+import useUser from '@/hooks/useUser';
 import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
+import { IoCloseSharp } from 'react-icons/io5'
+import { toast } from 'sonner'
 
 interface TicketCardProps {
   title: string
@@ -7,10 +12,15 @@ interface TicketCardProps {
 }
 
 const TicketCard: React.FC<TicketCardProps> = ({title, price}) => {
+  const user = useUser();
   return (
     <div className={`w-full md:w-2/3 lg:w-[300px] xl:w-[390px] h-[200px] bg-neutral-900 border border-red-500 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-black/80 shadow-black/50 flex flex-col items-center justify-between p-8 transition ${title === "" ? "opacity-0" : "opacity-100"}`}>
       <p className='tracking-wider text-2xl font-medium text-center'>{title}</p>
-      <div className='w-full h-12 bg-transparent border border-red-500 hover:bg-red-500 rounded-md cursor-pointer flex flex-row items-center justify-center gap-2 tracking-wide transition-colors'><FaShoppingCart size={20}/>{price} Ft</div>
+      <div onClick={() => {
+        if (user.user == undefined) {
+          toast("A vásárláshoz be kell jelentkezned!", {icon: <IoCloseSharp className='' size={20}/>,className: "bg-red-500 border-red-900"})
+        }
+      }} className='w-full h-12 bg-transparent border border-red-500 hover:bg-red-500 rounded-md cursor-pointer flex flex-row items-center justify-center gap-2 tracking-wide transition-colors'><FaShoppingCart size={20}/>{price} Ft</div>
     </div>
   )
 }

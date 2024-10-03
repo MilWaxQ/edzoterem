@@ -2,13 +2,14 @@
 
 import NavBar from "@/components/navbar";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import NewsCard from "@/components/newscard";
 import NewsCardLarge from "@/components/newscardlarge";
 
 export default function Home() {
+
   return (
-    <motion.div 
+    <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { FaHome, FaRegBell, FaRegUserCircle } from 'react-icons/fa'
-import { IoTicket, IoLogIn } from 'react-icons/io5'
+import { IoTicket, IoLogIn, IoCamera } from 'react-icons/io5'
 import NavItem from './navitem';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
@@ -10,9 +10,10 @@ import { IoCheckmarkOutline } from 'react-icons/io5';
 import NotificationCard from './notificationcard';
 import useUser from '@/hooks/useUser';
 import { useRouter } from 'next/navigation';
+import LoginDialog from './logindialog';
+import RegisterDialog from './registerdialog';
 
 const NavBar = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
   const [showNotifications, setShowNotifications] = useState(false);
   const user = useUser();
   const notificationsRef = useRef<HTMLDivElement>(null);
@@ -22,8 +23,8 @@ const NavBar = () => {
   const outsideClick = (e: MouseEvent) => {
     if (!notificationsRef.current?.contains(e.target as Node)) {
       setShowNotifications(false);
-      e.preventDefault();
-      e.stopPropagation();
+      //e.preventDefault();
+      //e.stopPropagation();
     }
   }
 
@@ -65,10 +66,11 @@ const NavBar = () => {
       <div className="w-full h-full flex flex-row items-center justify-center gap-4">
         <NavItem title='Főoldal' path='/' icon={<FaHome size={20}/>}/>
         <NavItem title='Jegyek & Bérletek' path='/berletek' icon={<IoTicket size={20}/>}/>
+        <NavItem title='Galéria' path='/galeria' icon={<IoCamera size={20}/>}/>
       </div>
       <div className="w-full h-full flex flex-row items-center justify-end gap-4">
         <AnimatePresence mode='wait'>
-          {loggedIn && <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{type: "spring", stiffness: "500", damping: "30"}} exit={{ scale: 0, opacity: 0, transition: {duration: 0.1} }} key={"user"} className='flex flex-row items-center gap-2'>
+          {user.user != undefined && <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{type: "spring", stiffness: "500", damping: "30"}} exit={{ scale: 0, opacity: 0, transition: {duration: 0.1} }} key={"user"} className='flex flex-row items-center gap-2'>
             <div className='cursor-pointer'><div onClick={() => {if(!showNotifications) setShowNotifications(true)}} className={`p-2 relative ${showNotifications ? 'pointer-events-none' : 'pointer-events-auto'}`}><FaRegBell size={24}/>
               <motion.div animate={user.notifications.length > 0 ? 'visible' : 'initial'} variants={{initial: {scale: 0}, visible: {scale: 1}}} className='w-3 h-3 rounded-full bg-red-500 absolute right-0 bottom-0 flex items-center justify-center text-xs p-2'>{user.notifications.length}</motion.div>
             </div>
@@ -82,9 +84,9 @@ const NavBar = () => {
             </motion.div>
             <div onClick={() => {router.push("/profile")}} className='w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-lg font-medium cursor-pointer'>M</div>
             </motion.div>}
-          {!loggedIn && <motion.div initial={{ scaleX: 0, opacity: 0, originX: 1 }} animate={{ scaleX: 1, opacity: 1 }} transition={{type: "spring", stiffness: "500", damping: "30"}} exit={{ scaleX: 0, opacity: 0, transition: {duration: 0.1}}} key={"buttons"} className='flex flex-row gap-4'>
-            <div onClick={() => {setLoggedIn(true)}} className='flex flex-row bg-red-500 p-2 items-center justify-center rounded-md gap-2 cursor-pointer'><IoLogIn size={22} /> Bejelentkezés</div>
-            <div onClick={() => {setLoggedIn(true)}} className='flex flex-row border border-red-500 p-2 items-center justify-center rounded-md gap-2 cursor-pointer'><FaRegUserCircle size={20} /> Regisztráció</div>
+          {user.user == undefined && <motion.div initial={{ scaleX: 0, opacity: 0, originX: 1 }} animate={{ scaleX: 1, opacity: 1 }} transition={{type: "spring", stiffness: "500", damping: "30"}} exit={{ scaleX: 0, opacity: 0, transition: {duration: 0.1}}} key={"buttons"} className='flex flex-row gap-4'>
+            <LoginDialog />
+            <RegisterDialog />
           </motion.div>}
         </AnimatePresence>
       </div>
