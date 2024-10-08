@@ -77,7 +77,7 @@ const PurchaseDialog: React.FC<PurchaseDialogProps> = ({title, price}) => {
       <DialogTrigger  className="outline-none w-full">
       <div onClick={(e) => {
         if (user.user == undefined) {
-          toast("A vásárláshoz be kell jelentkezned!", {icon: <IoCloseSharp className='' size={20}/>,className: "bg-red-500 border-red-900"})
+          toast("A vásárláshoz be kell jelentkezned!", {icon: <IoCloseCircleOutline className='' size={20}/>,className: "bg-red-500 border-red-900"})
           setOpen(false);
           e.preventDefault();
           e.stopPropagation();
