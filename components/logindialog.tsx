@@ -97,7 +97,7 @@ const LoginDialog = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Bejelentkezés</Button>
             </form>
           </Form>
           </DialogDescription>

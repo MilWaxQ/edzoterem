@@ -48,7 +48,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({notification, global
             <span className='text-sm'>{notification.title}</span>
             <span className='inline-block whitespace-nowrap text-ellipsis overflow-hidden w-[192px] text-xs font-light text-neutral-300'>{notification.description}<b className='text-white text-xs'>{notification.item}</b></span>
           </div>
-          <span className='text-sm font-light text-neutral-300'>{notification.date}</span>
+          <span className='text-xs font-light text-neutral-300'>{notification.date}</span>
         </div>
       </motion.div>
     </motion.div>

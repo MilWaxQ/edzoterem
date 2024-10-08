@@ -18,19 +18,30 @@ import useUser from '@/hooks/useUser';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5';
+import { Berlet } from '@prisma/client';
 
 const Profile = () => {
   const user = useUser();
   const router = useRouter()
   const [qr, setQr] = useState("");
-  const [id, setId] = useState("");
+  const [berlet, setBerlet] = useState<Berlet>();
+
+  async function loadBerlet() {
+    const berletData = await (await fetch("/api/berlet?user=1")).json();
+    if (berletData.ID != null) {
+      const qrSource = await QRCode.toDataURL(berletData.ID.toString(), {margin: 1});
+      setQr(qrSource)
+      setBerlet(berletData)
+    }
+  }
 
   useEffect(() => {
-    const uuid = uuidv4();
+    /*const uuid = uuidv4();
     QRCode.toDataURL(uuid, {margin: 1}).then((v) => {
       setQr(v);
       setId(uuid);
-    })
+    })*/
+   loadBerlet()
   }, [])
 
   useEffect(() => {
@@ -77,16 +88,19 @@ const Profile = () => {
             <AccordionTrigger className="text-lg flex flex-row justify-between">
               <div className='flex flex-row justify-start gap-2 items-center'>
                 <LiaDumbbellSolid size={24} />
-                <span>Bérletek</span>
+                <span>Bérletem</span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="p-4 flex flex-col gap-4">
-              <DataCard label="Azonosító" value={id} />
-              <DataCard label="Érvényesség kezdete" value="2024. 10. 01" />
-              <DataCard label="Lejárat dátuma" value="2024. 11. 01" />
-              <div className="w-full h-40 flex items-center justify-center mt-4">
-                <img width={170} height={170} src={qr} />
-              </div>
+            <AccordionContent className="p-4 flex flex-col items-center gap-4">
+              {berlet != undefined && berlet != null ? <div className='w-full flex flex-col items-center gap-4'>
+                <DataCard label="Azonosító" value={berlet?.ID.toString() ?? "-"} />
+                <DataCard label="Érvényesség kezdete" value={(new Date(berlet?.vasarlasDatuma ?? "").toLocaleDateString())} />
+                <DataCard label="Lejárat dátuma" value={(new Date(berlet?.lejaratDatuma ?? "").toLocaleDateString())} />
+                {berlet.alkalom > 0 ? <DataCard label="Hátralévő alkalmak" value={berlet.alkalom.toString()} /> : null}
+                <div className="w-full h-32 flex items-center justify-center mt-4">
+                  <img width={140} height={140} src={qr} />
+                </div>
+              </div> : <span className='text-lg font-bold'>Nincs bérleted</span>}
             </AccordionContent>
           </AccordionItem>
         </Accordion>

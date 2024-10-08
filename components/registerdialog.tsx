@@ -174,7 +174,7 @@ const RegisterDialog = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Regisztráció</Button>
             </form>
           </Form>
           </DialogDescription>

@@ -7,7 +7,7 @@ interface DataCardProps{
 
 const DataCard: React.FC<DataCardProps> = ({label, value}) => {
   return (
-    <div className="flex flex-col md:flex-row justify-between text-white">
+    <div className="flex flex-col md:flex-row justify-between text-white w-full">
       <span className="tracking-wider font-bold">{label}:</span>
       <span className="text-neutral-300 tracking-wider">{value}</span>
     </div>

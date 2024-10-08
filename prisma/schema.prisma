@@ -8,12 +8,14 @@ datasource db {
 }
 
 model Berlet {
-  ID            Int         @id @default(autoincrement())
-  lejarat       DateTime    @db.Date
-  lancreakcio   Boolean     @default(false)
-  felhasznaloID Int
-  berletID      Int
-  felhasznalok  Felhasznalo @relation(fields: [felhasznaloID], references: [ID], onDelete: Cascade, map: "berletek_ibfk_1")
+  ID             String      @id @db.VarChar(255)
+  vasarlasDatuma DateTime    @db.Date
+  lejaratDatuma  DateTime    @db.Date
+  alkalom        Int         @default(0)
+  lancreakcio    Boolean     @default(false)
+  felhasznaloID  Int
+  berlet         String      @db.Text
+  felhasznalok   Felhasznalo @relation(fields: [felhasznaloID], references: [ID], onDelete: Cascade, map: "berletek_ibfk_1")
 
   @@index([felhasznaloID], map: "felhasznaloID")
   @@map("berletek")
