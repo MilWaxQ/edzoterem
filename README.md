@@ -5,15 +5,18 @@ Vizsgaremekünk egy edzőterem webrendszeréről és felépítéséről fog szó
 
 A feladat olyan webalkalmazás készítése, amelyben a látogatók tájékozódhatnak az edzőteremről, és jegyeket, illetve bérleteket vásárolhatnak.
 
+
+Felhasználó bejelentkezés után:
 1.: Edzőtermi bérletek vásárlására lesz alkalmas
 
-2.: Személyes adatok megtekintésére alkalmas (adminisztrációs hozzáféréssel)
+2.: Személyes adatok megtekintésére alkalmas
+3.: A felhasználó be tud jelentkezni személyes adatok alapján, online tudja kezelni a bérletet, illetve tud is online újítani
 
-3.: Galéria ez edzőteremről, megtekinthető a belső felépítése és elrendezése
+Felhasználó bejelentkezés elött: 
+1.: Galéria ez edzőteremről, megtekinthető a belső felépítése és elrendezése
+2.: Megtekinthető lesz az edzőterem nyitvatartása, ünnepi nyitvatartása
 
-4.: Megtekinthető lesz az edzőterem nyitvatartása, ünnepi nyitvatartása
 
-5.: A felhasználó be tud jelentkezni személyes adatok alapján, online tudja kezelni a bérletet, illetve tud is online újítani
 
 
 Az alkalmazásnak reszponzívnak kell lennie, hogy asztali és mobil böngészőben is használható legyen.
