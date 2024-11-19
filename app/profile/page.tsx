@@ -27,7 +27,8 @@ const Profile = () => {
   const [berlet, setBerlet] = useState<Berlet>();
 
   async function loadBerlet() {
-    const berletData = await (await fetch("/api/berlet?user=1")).json();
+    if (user.user == undefined) return;
+    const berletData = await (await fetch(`/api/berlet?user=${user.user.ID}`)).json();
     if (berletData.ID != null) {
       const qrSource = await QRCode.toDataURL(berletData.ID.toString(), {margin: 1});
       setQr(qrSource)
@@ -42,7 +43,7 @@ const Profile = () => {
       setId(uuid);
     })*/
    loadBerlet()
-  }, [])
+  }, [user.user])
 
   useEffect(() => {
     if (window.localStorage.getItem("user-storage") == null) {

@@ -30,6 +30,7 @@ model Felhasznalo {
   lakcim             String   @db.Text
   szuletesiDatum     DateTime @db.Date
   regisztracioDatuma DateTime @db.DateTime(0)
+  admin              Boolean  @default(false)
   berletek           Berlet[]
 
   @@map("felhasznalok")

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react'
-import { FaHome, FaRegBell, FaRegUserCircle } from 'react-icons/fa'
+import { FaHome, FaRegBell, FaRegUserCircle, FaUser } from 'react-icons/fa'
 import { IoTicket, IoLogIn, IoCamera } from 'react-icons/io5'
 import NavItem from './navitem';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
@@ -67,6 +67,7 @@ const NavBar = () => {
         <NavItem title='Főoldal' path='/' icon={<FaHome size={20}/>}/>
         <NavItem title='Jegyek & Bérletek' path='/berletek' icon={<IoTicket size={20}/>}/>
         <NavItem title='Galéria' path='/galeria' icon={<IoCamera size={20}/>}/>
+        {user.user?.admin && <NavItem title='Admin' path='/admin' icon={<FaUser size={20} />} />}
       </div>
       <div className="w-full h-full flex flex-row items-center justify-end gap-4">
         <AnimatePresence mode='wait'>
