@@ -16,15 +16,18 @@ Felhasználó bejelentkezés elött:
 1.: Galéria ez edzőteremről, megtekinthető a belső felépítése és elrendezése
 2.: Megtekinthető lesz az edzőterem nyitvatartása, ünnepi nyitvatartása
 
-
+A felhasználóknak egy egyéni QR kód van feltüntetve a felhasználó profiljában, amit csak az adott felhasználó tekinthet meg, és ezzel a kóddal tudja megtekinteni a bérlet érvényességét/hátralévő alkalmak számát. 
 
 
 Az alkalmazásnak reszponzívnak kell lennie, hogy asztali és mobil böngészőben is használható legyen.
 
 Az adatokat egy adatbázisban kell tárolni, amelyet egy API-n keresztül lehet elérni. Az elkészített alkalmazás ezt az API-t hívja az adatok letöltéséhez és módosításához.
 
-Ezen kívül kell egy felület, ahol az edzőterem adminisztrátora kezelheti a jegyeket, bérleteket az API-n keresztül. Erre a felületre jelszó megadásával lehessen bejelentkezni. A tulajdonosnak létrehozni, módosítani és törölni is kell tudni az adatokat.
+Adminisztrációs felület:
 
+Az adatbázis adatain keresztül az admin meg tudja tekinteni a weboldalon kis kártyák formájában a felhasználók adatait (azonosító, név, e-mail, telefonszám, stb.).
+
+Az admin azonosítás után minden jogot megkap, hogy kezelhesse és felülvizsgálhassa a felhasználók adatait.
 
 Adatbázis:
 ezeket az adatokat kell tárolnunk
