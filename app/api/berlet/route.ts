@@ -11,7 +11,7 @@ async function handler(req: NextRequest) {
     const berlet = await prisma.berlet.findFirst({where: {felhasznaloID: userID}, orderBy: {lejaratDatuma: "desc"}});
 
     if (berlet != null) {
-      if (berlet.lejaratDatuma.getFullYear() < now.getFullYear() || berlet.lejaratDatuma.getMonth() < now.getMonth() || berlet.lejaratDatuma.getDate() < now.getDate()) {
+      if (berlet.lejaratDatuma < now) {
         return new NextResponse(JSON.stringify({}), {status: 200})
       }
     }
@@ -38,7 +38,7 @@ async function handler(req: NextRequest) {
     const berlet = await prisma.berlet.findFirst({where: {felhasznaloID: userID}});
 
     if (berlet != null) {
-      if (berlet.lejaratDatuma.getFullYear() >= now.getFullYear() && berlet.lejaratDatuma.getMonth() >= now.getMonth() && berlet.lejaratDatuma.getDate() >= now.getDate()) {
+      if (berlet.lejaratDatuma >= now) {
         return new NextResponse(JSON.stringify({success: false, message: "Már van érvényes bérleted"}), {status: 409})
       }
     }
@@ -61,7 +61,24 @@ async function handler(req: NextRequest) {
 
 
     return new NextResponse(JSON.stringify({success: true}), {status: 200})
+  } else if (req.method == "PATCH") {
+    const b: {ID: string, alkalom: number} = await req.json();
+
+    try {
+      const update = await prisma.berlet.update({
+        data: {
+          alkalom: b.alkalom
+        },
+        where: {
+          ID: b.ID
+        }
+      });
+
+      return new NextResponse(JSON.stringify({success: true}), {status: 200})
+    } catch (error) {
+      return new NextResponse(JSON.stringify({success: false}), {status: 500})
+    }
   }
 }
 
-export {handler as GET, handler as POST}
+export {handler as GET, handler as POST, handler as PATCH}

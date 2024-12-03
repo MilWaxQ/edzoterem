@@ -15,4 +15,4 @@ export function formatDate(d: Date, showTime = false) {
   const minutes = date.getMinutes();
 
   return `${year}. ${month}. ${day}.${showTime ? " " + hour + ":" + minutes : ""}`;
-} 
+}

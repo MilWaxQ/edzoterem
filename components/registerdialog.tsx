@@ -88,7 +88,7 @@ const RegisterDialog = () => {
   return (
     <Dialog>
       <DialogTrigger className="outline-none">
-      <div className='flex flex-row border border-red-500 p-2 items-center justify-center rounded-md gap-2 cursor-pointer'><FaRegUserCircle size={20} /> Regisztráció</div>
+      <div className='flex flex-row border border-red-500 p-2 items-center justify-center rounded-md gap-2 cursor-pointer'><FaRegUserCircle size={20} /> <span className="lg:inline hidden">Regisztráció</span></div>
       </DialogTrigger>
       <DialogContent className="bg-neutral-800 border-black">
         <DialogHeader>

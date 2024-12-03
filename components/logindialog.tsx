@@ -63,7 +63,7 @@ const LoginDialog = () => {
   return (
     <Dialog>
       <DialogTrigger className="outline-none">
-      <div className='flex flex-row bg-red-500 p-2 items-center justify-center rounded-md gap-2 cursor-pointer'><IoLogIn size={22} /> Bejelentkezés</div>
+      <div className='flex flex-row bg-red-500 p-2 items-center justify-center rounded-md gap-2 cursor-pointer'><IoLogIn size={22} /> <span className="lg:inline hidden">Bejelentkezés</span></div>
       </DialogTrigger>
       <DialogContent className="bg-neutral-800 border-black">
         <DialogHeader>

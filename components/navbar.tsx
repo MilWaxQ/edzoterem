@@ -57,14 +57,15 @@ const NavBar = () => {
   }, [])
 
   return (
-    <div className="w-[96vw] lg:w-[98vw] mt-4 h-16 bg-neutral-800 rounded-lg shadow-xl flex flex-row items-center justify-evenly overflow-visible px-8 fixed left-1/2 -translate-x-1/2 z-10">
+    <div className="w-[96vw] lg:w-[98vw] mt-4 h-16 bg-neutral-800 rounded-lg shadow-xl flex flex-row items-center justify-evenly overflow-visible lg:px-8 px-4 fixed left-1/2 -translate-x-1/2 z-10">
       <div className="w-full h-full flex flex-row items-center justify-start">
         <div onClick={() => {
           //user.addNotification({title: "Sikeres vásárlás!", description: "Megvásároltad ezt: ", item: "Napijegy", date: "07/31", success: true})
-        }} className='rounded-full overflow-hidden p-5 relative bg-white'><Image src={"/images/logo.jpg"} alt='' fill style={{padding: "4px", objectFit: 'contain'}} ></Image></div>
+          router.push("/")
+        }} className='rounded-full overflow-hidden p-5 relative bg-white cursor-pointer'><Image src={"/images/logo.jpg"} alt='' fill style={{padding: "4px", objectFit: 'contain'}} ></Image></div>
       </div>
-      <div className="w-full h-full flex flex-row items-center justify-center gap-4">
-        <NavItem title='Főoldal' path='/' icon={<FaHome size={20}/>}/>
+      <div className="w-full h-full flex flex-row items-center justify-center lg:justify-center gap-4">
+        {/*<NavItem title='Főoldal' path='/' icon={<FaHome size={20}/>}/>*/}
         <NavItem title='Jegyek & Bérletek' path='/berletek' icon={<IoTicket size={20}/>}/>
         <NavItem title='Galéria' path='/galeria' icon={<IoCamera size={20}/>}/>
         {user.user?.admin && <NavItem title='Admin' path='/admin' icon={<FaUser size={20} />} />}
@@ -83,7 +84,7 @@ const NavBar = () => {
                 {user.notifications.length > 0 ? <div onClick={() => {removeAllNotifications();}} className='w-8 h-8 p-2 rounded-full bg-neutral-700 flex items-center justify-center my-4 cursor-pointer'>X</div> : <div className='my-auto flex flex-row gap-2'><IoCheckmarkOutline size={26} className='text-green-500' /> Nincs értesítésed.</div>}
               </div>
             </motion.div>
-            <div onClick={() => {router.push("/profile")}} className='w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-lg font-medium cursor-pointer'>M</div>
+            <div onClick={() => {router.push("/profile")}} className='w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-lg font-medium cursor-pointer'>{user.user.nev.split(" ")[1].substring(0, 1)}</div>
             </motion.div>}
           {user.user == undefined && <motion.div initial={{ scaleX: 0, opacity: 0, originX: 1 }} animate={{ scaleX: 1, opacity: 1 }} transition={{type: "spring", stiffness: "500", damping: "30"}} exit={{ scaleX: 0, opacity: 0, transition: {duration: 0.1}}} key={"buttons"} className='flex flex-row gap-4'>
             <LoginDialog />

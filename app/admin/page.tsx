@@ -42,7 +42,7 @@ const Page = () => {
       }} className="bg-neutral-900 min-h-screen text-white flex flex-col items-start justify-start p-8 pt-24 gap-16">
       <h1 className="text-[32px] md:text-[40px] uppercase tracking-widest font-light mx-auto">Felhasználók</h1>
       <div className='w-full h-auto rounded-lg flex flex-row flex-wrap gap-4 justify-center items-start'>
-        {users.map((u) => <UserCard key={u.ID} user={u} />)}
+        {users.map((u) => <UserCard key={u.ID} userData={u} />)}
       </div>
       <div className='w-full h-auto bg-neutral-800 rounded-lg relative overflow-hidden hidden'>
         <table suppressHydrationWarning className='w-full h-full table-fixed'>

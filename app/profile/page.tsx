@@ -28,11 +28,16 @@ const Profile = () => {
 
   async function loadBerlet() {
     if (user.user == undefined) return;
-    const berletData = await (await fetch(`/api/berlet?user=${user.user.ID}`)).json();
-    if (berletData.ID != null) {
-      const qrSource = await QRCode.toDataURL(berletData.ID.toString(), {margin: 1});
-      setQr(qrSource)
-      setBerlet(berletData)
+    const berletRequest = await fetch(`/api/berlet?user=${user.user.ID}`);
+
+    if (berletRequest.status == 200) {
+      const berletData = await berletRequest.json();
+      console.log(berletData);
+      if (berletData.ID != null) {
+        const qrSource = await QRCode.toDataURL(berletData.ID.toString(), {margin: 1});
+        setQr(qrSource)
+        setBerlet(berletData)
+      }
     }
   }
 
@@ -67,7 +72,7 @@ const Profile = () => {
       hidden: { opacity: 0 }
     }} className="bg-neutral-900 min-h-screen text-white flex flex-col items-center justify-center p-8 pt-36 md:pt-24 gap-16">
       <div className='md:h-[75vh] w-full md:w-[32rem] bg-neutral-800 relative rounded-lg drop-shadow-lg flex flex-col items-center pt-24 px-4 md:px-8 gap-4 pb-4'>
-        <div className='w-32 h-32 bg-red-500 border-[12px] border-neutral-900 rounded-full flex items-center justify-center text-5xl drop-shadow-2xl absolute left-1/2 -translate-x-1/2 -top-12'>M</div>
+        <div className='w-32 h-32 bg-red-500 border-[12px] border-neutral-900 rounded-full flex items-center justify-center text-5xl drop-shadow-2xl absolute left-1/2 -translate-x-1/2 -top-12'>{user.user?.nev.split(" ")[1].substring(0, 1)}</div>
         <div className='text-2xl font-bold tracking-widest'>{user.user?.nev ?? ""}</div>
         <Accordion className="w-full border-none" type="single" collapsible defaultValue="item-1">
           <AccordionItem className="border-none" value="item-1">
