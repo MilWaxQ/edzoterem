@@ -69,11 +69,11 @@ CREATE TABLE `felhasznalok` (
 --
 
 INSERT INTO `felhasznalok` (`ID`, `nev`, `email`, `jelszo`, `telefonszam`, `lakcim`, `szuletesiDatum`, `admin`, `regisztracioDatuma`) VALUES
-(1, 'Kis Pista', 'kis.pista@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '', '', '2024-12-03', 1, '2024-11-29 13:05:04'),
-(2, 'Bangó Margit', 'bangomargitka@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '', '', '2024-12-03', 0, '2024-11-29 13:06:57'),
-(3, 'Tipp Elek', 'tipp.elek@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '', '', '2024-12-03', 0, '2024-11-29 13:07:34'),
-(4, 'Kovács Viktor', 'viktorkovacs@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '', '', '2024-12-03', 0, '2024-11-29 13:08:27'),
-(5, 'Szabó Gizella', 'gizella.szabo@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '', '', '2024-12-03', 0, '2024-11-29 13:10:03');
+(1, 'Kis Pista', 'kis.pista@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '06-22-567-8901', 'Budapest, kisbaba u. 11.', '2024-12-03', 1, '2024-11-29 13:05:04'),
+(2, 'Bangó Margit', 'bangomargitka@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '06-33-456-7890', 'Budapest, markoló utca 123.', '2024-12-03', 0, '2024-11-29 13:06:57'),
+(3, 'Tipp Elek', 'tipp.elek@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '06-77-314-5433', 'Gyál, makaróni utca 546.', '2024-12-03', 0, '2024-11-29 13:07:34'),
+(4, 'Kovács Viktor', 'viktorkovacs@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '06-34-432-1235', 'Budapest, billentyűzet utca 365.', '2024-12-03', 0, '2024-11-29 13:08:27'),
+(5, 'Szabó Gizella', 'gizella.szabo@gmail.com', '$2b$10$8XzKzcf5yMjF.fl9LXxIuedhJu87o3dqVsVNseux.ZeMRGbvRIOku', '06-98-765-9873', 'Vecsés, brokkoli utca 122.', '2024-12-03', 0, '2024-11-29 13:10:03');
 
 --
 -- Indexes for dumped tables
