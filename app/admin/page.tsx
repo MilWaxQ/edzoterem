@@ -44,34 +44,6 @@ const Page = () => {
       <div className='w-full h-auto rounded-lg flex flex-row flex-wrap gap-4 justify-center items-start'>
         {users.map((u) => <UserCard key={u.ID} userData={u} />)}
       </div>
-      <div className='w-full h-auto bg-neutral-800 rounded-lg relative overflow-hidden hidden'>
-        <table suppressHydrationWarning className='w-full h-full table-fixed'>
-          <thead>
-            <tr>
-              <th className='text-left px-4 pt-2 w-16'>ID</th>
-              <th className='text-left pt-2 w-auto'>Név</th>
-              <th className='text-left pt-2'>E-mail cím</th>
-              <th className='text-left pt-2'>Lakcím</th>
-              <th className='text-left pt-2'>Telefonszám</th>
-              <th className='text-left pt-2'>Születési dátum</th>
-              <th className='text-left pt-2'>Regisztráció dátuma</th>
-            </tr>
-          </thead>
-          <div className='min-h-2'></div>
-          <div className='min-h-[1px] min-w-full bg-neutral-500 absolute left-0 top-10'></div>
-          <tbody>
-            {users.map((u) => <tr className='even:bg-neutral-800 odd:bg-neutral-700' key={u.ID}>
-              <td className='px-4 py-2 w-16'>{u.ID}</td>
-              <td className='w-auto'>{u.nev}</td>
-              <td>{u.email}</td>
-              <td>{u.lakcim}</td>
-              <td>{u.telefonszam}</td>
-              <td>{formatDate(u.szuletesiDatum)}</td>
-              <td>{formatDate(u.regisztracioDatuma, true)}</td>
-            </tr>)}
-          </tbody>
-        </table>
-      </div>
     </motion.div>
   )
 }

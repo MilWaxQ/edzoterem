@@ -32,7 +32,6 @@ const Profile = () => {
 
     if (berletRequest.status == 200) {
       const berletData = await berletRequest.json();
-      console.log(berletData);
       if (berletData.ID != null) {
         const qrSource = await QRCode.toDataURL(berletData.ID.toString(), {margin: 1});
         setQr(qrSource)
@@ -111,7 +110,7 @@ const Profile = () => {
           </AccordionItem>
         </Accordion>
         <div className='h-full flex-grow'></div>
-        <div onClick={() => {user.setUser(undefined); router.push("/"); toast("Sikeres kijelentkezés!", {icon: <IoCheckmarkCircleOutline size={20}/>,className: "bg-green-500 border-green-900"})}} className='w-40 min-h-12 text-red-500 rounded-md hover:bg-red-500/20 transition-all cursor-pointer flex flex-row items-center justify-center gap-2'>
+        <div onClick={() => {user.setUser(undefined); user.clearNotifications(); router.push("/"); toast("Sikeres kijelentkezés!", {icon: <IoCheckmarkCircleOutline size={20}/>,className: "bg-green-500 border-green-900"})}} className='w-40 min-h-12 text-red-500 rounded-md hover:bg-red-500/20 transition-all cursor-pointer flex flex-row items-center justify-center gap-2'>
           <GoSignOut size={20} />
           <span>Kijelentkezés</span>
         </div>

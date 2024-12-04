@@ -28,7 +28,7 @@ const Galeria = () => {
       hidden: { opacity: 0 }
     }} className="bg-neutral-900 min-h-screen h-screen text-white p-8 pt-24 gap-16">
       <motion.div initial="initial" animate="animate" variants={variants} className='w-full h-auto flex flex-row flex-wrap gap-4 justify-center items-start pb-8'>
-        {Array.from(Array(10)).map((v) => <GalleryCard key={v} />)}
+        {Array.from(Array(10)).map((v, i) => <GalleryCard key={i} />)}
       </motion.div>
     </motion.div>
   )

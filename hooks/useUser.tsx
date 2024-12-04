@@ -33,9 +33,9 @@ const useUser = create<UserState>()(
       user: undefined,
       isHydrated: false,
       notifications: [
-        {ID: 1, title: "Sikeres vásárlás!", description: "Megvásároltad ezt: ", item: "Napijegy", date: "07/31", success: true},
+        /*{ID: 1, title: "Sikeres vásárlás!", description: "Megvásároltad ezt: ", item: "Napijegy", date: "07/31", success: true},
         {ID: 2, title: "Hiba!", description: "Valami hiba történt.", date: "07/31", success: false},
-        /*{ID: 3, title: "Hiba!", description: "Valami hiba történt.", date: "07/31", success: false},
+        {ID: 3, title: "Hiba!", description: "Valami hiba történt.", date: "07/31", success: false},
         {ID: 4, title: "Hiba!", description: "Valami hiba történt.", date: "07/31", success: false},
         {ID: 5, title: "Hiba!", description: "Valami hiba történt.", date: "07/31", success: false},
         {ID: 6, title: "Hiba!", description: "Valami hiba történt.", date: "07/31", success: false},
