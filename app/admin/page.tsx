@@ -5,7 +5,7 @@ import { formatDate } from '@/lib/utils';
 import { FelhasznaloWithBerlet } from '@/types/prisma';
 import { Felhasznalo } from '@prisma/client';
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import QRCode from 'qrcode'
 import UserCard from '@/components/usercard';
@@ -13,10 +13,13 @@ import UserCard from '@/components/usercard';
 const Page = () => {
   const user = useUser();
   const router = useRouter();
+  const path = usePathname();
   const [users, setUsers] = useState<FelhasznaloWithBerlet[]>([])
 
   async function fetchData() {
-    const r = await fetch("/api/users");
+    if (user.user == undefined) return;
+    console.log("Fetching")
+    const r = await fetch("/api/users", { cache: 'no-store', next: { revalidate: 0 }});
     //const users = Array(100).fill({ID: 1, nev: "asd", email: "asd", lakcim: "asd", telefonszam: "asd", szuletesiDatum: "asd", regisztracioDatuma: "asd"}, 0, 100);
     const users = await r.json();
     setUsers(users);
@@ -29,6 +32,10 @@ const Page = () => {
       fetchData();
     }
   }, [user.user])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <motion.div

@@ -41,7 +41,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({notification, global
 
   return (
     <motion.div inherit={false} style={{originX: 1}} animate={globalController}>
-      <motion.div inherit={false} style={{originX: 1}} animate={controls} onClick={removeNotification} className='w-full h-16 border-b border-neutral-700 flex flex-row items-center px-2 gap-2 hover:bg-red-500/10 transition-all cursor-pointer'>
+      <motion.div inherit={false} style={{originX: 1}} animate={controls} onClick={removeNotification} className='min-w-full w-full h-16 border-b border-neutral-700 flex flex-row items-center px-4 gap-2 hover:bg-red-500/10 transition-all cursor-pointer rounded-lg'>
         {notification.success ? <IoCheckmarkOutline size={26} className='text-green-500' /> : <FaExclamation size={26} className='text-orange-500' />}
         <div className='w-full h-full flex flex-row justify-between items-center'>
           <div className='flex flex-col justify-center items-start '>

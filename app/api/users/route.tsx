@@ -1,6 +1,8 @@
 import prisma from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic'
+
 async function handler(req: NextRequest) {
   if (req.method == "GET") {
     const data = await prisma.felhasznalo.findMany();

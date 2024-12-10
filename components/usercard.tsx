@@ -22,7 +22,7 @@ const UserCard: React.FC<UserCardProps> = ({userData}) => {
         setQr(v);
       });
     }
-  }, [])
+  }, [user])
 
   async function decreaseCount(ID: string) {
     const aktualisBerlet = user.berletek.filter((b) => b.ID == ID);
