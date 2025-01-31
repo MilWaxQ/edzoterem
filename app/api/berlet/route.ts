@@ -43,7 +43,6 @@ async function handler(req: NextRequest) {
       }
     }
 
-
     try {
       r = await prisma.berlet.create({
         data: {
@@ -58,7 +57,6 @@ async function handler(req: NextRequest) {
     } catch (e) {
       return new NextResponse(JSON.stringify({success: false}), {status: 409});
     }
-
 
     return new NextResponse(JSON.stringify({success: true}), {status: 200})
   } else if (req.method == "PATCH") {

@@ -81,8 +81,6 @@ const RegisterDialog = () => {
         form.setError("phoneNumber", {message: "Ez a telefonszám már használatban van."})
       }
     }
-
-    
   }
 
   return (

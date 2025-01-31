@@ -10,7 +10,7 @@ async function handler(req: NextRequest) {
 
     const user = await prisma.felhasznalo.findFirst({where: {email: email}});
     if (user == null) {
-      return new NextResponse("User not found", {status: 404})
+      return new NextResponse("Felhasználó nem található", {status: 404})
     }
 
     const passwordCorrect = await compare(pass, user.jelszo);
@@ -18,7 +18,7 @@ async function handler(req: NextRequest) {
       return new NextResponse(JSON.stringify(user), {status: 200})
     }
 
-    return new NextResponse("Wrong password", {status: 401})
+    return new NextResponse("Hibás jelszó", {status: 401})
   } else {
     const b = await req.json();
     const name = b.name;
@@ -47,9 +47,9 @@ async function handler(req: NextRequest) {
     } catch (e) {
       const error = (e as PrismaClientKnownRequestError).meta!.target;
       if (error == "email") {
-        return new NextResponse("Email alredy in use", {status: 409});
+        return new NextResponse("E-mail cím már használatban van", {status: 409});
       } else {
-        return new NextResponse("Phone number alredy in use", {status: 409});
+        return new NextResponse("Telefonszám már használatban van", {status: 409});
       }
     }
 
