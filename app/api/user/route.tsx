@@ -41,7 +41,8 @@ async function handler(req: NextRequest) {
           szuletesiDatum: birthDate,
           lakcim: address,
           telefonszam: phoneNumber,
-          regisztracioDatuma: registerDate
+          regisztracioDatuma: registerDate,
+          admin: false
         }
       })
     } catch (e) {
