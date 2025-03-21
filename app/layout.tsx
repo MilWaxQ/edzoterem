@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/sonner"
 const font = Noto_Sans({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
-  title: "Edzőterem",
-  description: "Edzőterem"
+  title: "Warrior GYM",
+  description: "Warrior GYM"
 };
 
 export default function RootLayout({
