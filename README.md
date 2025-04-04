@@ -6,8 +6,8 @@ Köszöntünk az Silver edzőterem vizsgaremek githubján
 > Az itt megtalálható fájlók segítségével futtatható a program
 >
 > ***A dokumentáció.docx-ban*** található a projekt dokumentációja
-> A tesztelés a ***TESZTELES.xlsx-ben*** található
-[This is an external link to genome.gov](https://github.com/MilWaxQ/edzoterem/blob/master/TESZTELES.xlsx)
+> A tesztelés a [***TESZTELES.xlsx-ben***](https://github.com/MilWaxQ/edzoterem/blob/master/TESZTELES.xlsx) található
+
 Készítette: 
 - Dóczi Milán 
 - Helembai Ádám 
