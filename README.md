@@ -1,5 +1,5 @@
 # Silver Edzőterem
-![logo](https://github.com/MilWaxQ/edzoterem/blob/master/public/images/logo.jpg)
+![logo](https://github.com/MilWaxQ/edzoterem/blob/master/public/images/logo.jpg | width=100)
 
 Köszöntünk az Silver edzőterem vizsgaremek githubján
 > Az itt megtalálható fájlók segítségével futtatható a program
