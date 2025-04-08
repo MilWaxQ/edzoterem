@@ -34,9 +34,10 @@ import { useState } from "react";
 interface PurchaseDialogProps {
   price: number
   title: string
+  isTicket?: boolean
 }
 
-const PurchaseDialog: React.FC<PurchaseDialogProps> = ({title, price}) => {
+const PurchaseDialog: React.FC<PurchaseDialogProps> = ({title, price, isTicket}) => {
   const user = useUser();
   const [open, setOpen] = useState(false);
 
@@ -89,7 +90,7 @@ const PurchaseDialog: React.FC<PurchaseDialogProps> = ({title, price}) => {
         <DialogHeader>
           <DialogTitle className="mb-4">Vásárlás</DialogTitle>
           <DialogDescription className="flex flex-col gap-10">
-            <span className="text-white">Biztosan meg szeretnéd vásárolni ezt a bérletet?</span>
+            <span className="text-white">Biztosan meg szeretnéd vásárolni ezt a {isTicket ? "jegyet" : "bérletet"}?</span>
             <div className="flex flex-row gap-2">
               <Button onClick={onSubmit} className="w-20 hover:bg-red-500">Igen</Button>
               <Button onClick={() => {setOpen(false)}} className="w-20">Nem</Button>

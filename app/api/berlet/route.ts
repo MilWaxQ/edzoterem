@@ -43,6 +43,10 @@ async function handler(req: NextRequest) {
       }
     }
 
+    if (!title.toLowerCase().includes("bérlet")) {
+      return new NextResponse(JSON.stringify({success: true}), {status: 200})
+    }
+
     try {
       r = await prisma.berlet.create({
         data: {
